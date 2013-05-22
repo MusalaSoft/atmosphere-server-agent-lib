@@ -26,16 +26,6 @@ public interface IAgentManager extends Remote
 	public List<DeviceInformation> getAllDevicesInformation() throws RemoteException;
 
 	/**
-	 * Creates a wrapper for the device with serial number SN and publishes it in the RMI registry.
-	 * 
-	 * @param serialNumber
-	 *        Serial number of the device which we want wrapped.
-	 * @return The string, which the device wrapper is published in the registry under.
-	 * @throws RemoteException
-	 */
-	public String createWrapperForDevice(String serialNumber) throws RemoteException, DeviceNotFoundException;
-
-	/**
 	 * Checks if a device with exact serial number is present on this Agent.
 	 * 
 	 * @param serialNumber
