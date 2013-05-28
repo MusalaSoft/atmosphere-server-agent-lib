@@ -14,6 +14,34 @@ import com.musala.atmosphere.commons.sa.util.Pair;
  */
 public class DeviceInformation implements Serializable
 {
+	public static final Integer FALLBACK_DISPLAY_DENSITY = 0;
+
+	public static final Integer FALLBACK_RAM_AMOUNT = 0;
+
+	public static final Pair<Integer, Integer> FALLBACK_SCREEN_RESOLUTION = new Pair<Integer, Integer>(0, 0);
+
+	public static final boolean FALLBACK_ISEMULATOR_SETTING = true;
+
+	public static final String FALLBACK_MODEL_VALUE = "not set";
+
+	public static final String FALLBACK_OS_VALUE = "not set";
+
+	public static final String FALLBACK_SERIALNUMBER_VALUE = "not set";
+
+	/**
+	 * Default constructor that fills this structure with the FALLBACK constants.
+	 */
+	public DeviceInformation()
+	{
+		isEmulator = FALLBACK_ISEMULATOR_SETTING;
+		dpi = FALLBACK_DISPLAY_DENSITY;
+		model = FALLBACK_MODEL_VALUE;
+		os = FALLBACK_OS_VALUE;
+		resolution = FALLBACK_SCREEN_RESOLUTION;
+		serialNumber = FALLBACK_SERIALNUMBER_VALUE;
+		ram = FALLBACK_RAM_AMOUNT;
+	}
+
 	/**
 	 * 
 	 */
