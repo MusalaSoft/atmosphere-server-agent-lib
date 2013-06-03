@@ -18,12 +18,12 @@ import com.musala.atmosphere.commons.sa.exceptions.NotPossibleForDeviceException
 public interface IAgentManager extends Remote
 {
 	/**
-	 * Gets a list of DeviceInformation for all available devices on the current Agent.
+	 * Gets a list of all published and available device wrapper RMI string identifiers on the current Agent.
 	 * 
 	 * @return List of the DeviceInformation objects, one for every available device on the current Agent.
 	 * @throws RemoteException
 	 */
-	public List<DeviceInformation> getAllDevicesInformation() throws RemoteException;
+	public List<String> getAllDeviceWrappers() throws RemoteException;
 
 	/**
 	 * Checks if a device with exact serial number is present on this Agent.
@@ -34,16 +34,6 @@ public interface IAgentManager extends Remote
 	 * @throws RemoteException
 	 */
 	public boolean isDevicePresent(String serialNumber) throws RemoteException;
-
-	/**
-	 * Gets the DeviceInformation object for a device by it's exact serial number.
-	 * 
-	 * @param serialNumber
-	 *        Serial number of the device.
-	 * @return DeviceInformation for the requested device.
-	 * @throws RemoteException
-	 */
-	public DeviceInformation getDeviceInformation(String serialNumber) throws RemoteException, DeviceNotFoundException;
 
 	/**
 	 * Creates and starts a new emulator with specific DeviceParameters or just starts an emulator with the

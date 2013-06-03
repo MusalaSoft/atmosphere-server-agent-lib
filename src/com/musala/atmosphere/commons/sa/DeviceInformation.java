@@ -28,6 +28,8 @@ public class DeviceInformation implements Serializable
 
 	public static final String FALLBACK_SERIALNUMBER_VALUE = "not set";
 
+	public static final String FALLBACK_CPU_IDENTIFIER = "unknown";
+
 	/**
 	 * Default constructor that fills this structure with the FALLBACK constants.
 	 */
@@ -40,6 +42,7 @@ public class DeviceInformation implements Serializable
 		resolution = FALLBACK_SCREEN_RESOLUTION;
 		serialNumber = FALLBACK_SERIALNUMBER_VALUE;
 		ram = FALLBACK_RAM_AMOUNT;
+		cpu = FALLBACK_CPU_IDENTIFIER;
 	}
 
 	/**
@@ -81,6 +84,11 @@ public class DeviceInformation implements Serializable
 	 * Random access memory (RAM) available to the device.
 	 */
 	private int ram;
+
+	/**
+	 * CPU identifier.
+	 */
+	private String cpu;
 
 	public String getSerialNumber()
 	{
@@ -150,5 +158,15 @@ public class DeviceInformation implements Serializable
 	public void setRam(int ram)
 	{
 		this.ram = ram;
+	}
+
+	public void setCpu(String cpu)
+	{
+		this.cpu = cpu;
+	}
+
+	public String getCpu()
+	{
+		return cpu;
 	}
 }

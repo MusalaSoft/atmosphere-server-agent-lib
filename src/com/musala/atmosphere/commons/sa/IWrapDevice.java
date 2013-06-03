@@ -34,14 +34,6 @@ public interface IWrapDevice extends Remote
 	public int getBatteryLevel() throws RemoteException, CommandFailedException;
 
 	/**
-	 * Gets the CPU type string of the device.
-	 * 
-	 * @return CPU name identifier.
-	 * @throws RemoteException
-	 */
-	public String getCPUType() throws RemoteException;
-
-	/**
 	 * Gets the amount of free RAM on the device.
 	 * 
 	 * @return Memory amount in MB.
@@ -59,6 +51,17 @@ public interface IWrapDevice extends Remote
 	 * @throws CommandFailedException
 	 */
 	public String executeShellCommand(String command) throws RemoteException, CommandFailedException;
+
+	/**
+	 * Executes a list of shell commands one right after the previous.
+	 * 
+	 * @param commandsList
+	 *        List of string commands that should be executed in the shell of the device.
+	 * @return List of string responses, one for each executed shell command.
+	 * @throws RemoteException
+	 */
+	public java.util.List<String> executeSequenceOfShellCommands(java.util.List<String> commandsList)
+		throws RemoteException;
 
 	/**
 	 * Sets the maximum upload/download speed for the device.
@@ -118,4 +121,53 @@ public interface IWrapDevice extends Remote
 	 */
 	public void discardAPK() throws RemoteException;
 
+	/**
+	 * Gets a {@link DeviceInformation DeviceInformation} structure for the wrapped IDevice in this wrapper.
+	 * 
+	 * @return The populated {@link DeviceInformation DeviceInformation}.
+	 * @throws RemoteException
+	 */
+	public DeviceInformation getDeviceInformation() throws RemoteException;
+
+	/**
+	 * Gets the uiautomator XML dump from a device and returns it as a string.
+	 * 
+	 * @return UI XML file dump in a string.
+	 * @throws RemoteException
+	 */
+	public String getUiXml() throws RemoteException;
+
+	/**
+	 * Gets the device network latency.
+	 * 
+	 * @return latency, in ms.
+	 * @throws RemoteException
+	 */
+	public int getNetworkLatency() throws RemoteException;
+
+	/**
+	 * Sets the network latency of the device.
+	 * 
+	 * @param latency
+	 *        network latency, in ms.
+	 * @throws RemoteException
+	 */
+	public void setNetworkLatency(int latency) throws RemoteException;
+
+	/**
+	 * Gets the battery state of the device.
+	 * 
+	 * @return a member of the {@link BatteryState BatteryState} enumeration.
+	 * @throws RemoteException
+	 */
+	public BatteryState getBatteryState() throws RemoteException;
+
+	/**
+	 * Sets the battery state of the device.
+	 * 
+	 * @param state
+	 *        new battery state.
+	 * @throws RemoteException
+	 */
+	public void setBatteryState(BatteryState state) throws RemoteException;
 }
