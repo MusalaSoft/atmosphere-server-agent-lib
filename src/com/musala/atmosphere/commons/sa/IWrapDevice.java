@@ -1,5 +1,6 @@
 package com.musala.atmosphere.commons.sa;
 
+import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -91,11 +92,13 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Creates a new .apk file that will be installed on the current device. Use appendToAPK(Byte[]) and
-	 * buildAndInstallAPK() to tranfer the file. If another file is being tranfered, it will be discarded.
+	 * buildAndInstallAPK() to tranfer the file. If another file is being transfered, it will be discarded.
 	 * 
 	 * @throws RemoteException
+	 * @throws IOException
+	 *         when a file system error occurs on the agent.
 	 */
-	public void initAPKInstall() throws RemoteException;
+	public void initAPKInstall() throws RemoteException, IOException;
 
 	/**
 	 * Appends bytes to the .apk file that is currently being built. Use buildAndInstallAPK() to install the transfered
@@ -104,22 +107,30 @@ public interface IWrapDevice extends Remote
 	 * @param bytes
 	 *        Byte array to be appended to the .apk file that is being built.
 	 * @throws RemoteException
+	 * @throws IOException
+	 *         when a file system error occurs on the agent.
 	 */
-	public void appendToAPK(Byte[] bytes) throws RemoteException;
+	public void appendToAPK(byte[] bytes) throws RemoteException, IOException;
 
 	/**
 	 * Builds the transfered .apk file, uploads and then installs it on the current device.
 	 * 
 	 * @throws RemoteException
+	 * @throws CommandFailedException
+	 *         when the install command fails on the device.
+	 * @throws IOException
+	 *         when a file system error occurs on the agent.
 	 */
-	public void buildAndInstallAPK() throws RemoteException;
+	public void buildAndInstallAPK() throws RemoteException, IOException, CommandFailedException;
 
 	/**
 	 * Discards all transfered .apk file data.
 	 * 
 	 * @throws RemoteException
+	 * @throws IOException
+	 *         when a file system error occurs on the agent.
 	 */
-	public void discardAPK() throws RemoteException;
+	public void discardAPK() throws RemoteException, IOException;
 
 	/**
 	 * Gets a {@link DeviceInformation DeviceInformation} structure for the wrapped IDevice in this wrapper.
@@ -134,8 +145,9 @@ public interface IWrapDevice extends Remote
 	 * 
 	 * @return UI XML file dump in a string.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
-	public String getUiXml() throws RemoteException;
+	public String getUiXml() throws RemoteException, CommandFailedException;
 
 	/**
 	 * Gets the device network latency.
