@@ -1,5 +1,6 @@
 package com.musala.atmosphere.commons.sa;
 
+import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
@@ -41,10 +42,11 @@ public interface IAgentManager extends Remote
 	 * 
 	 * @param parameters
 	 *        DeviceParameters of the device we want created.
-	 * @return DeviceInformation for the started device.
+	 * @return Device wrapper identifier.
 	 * @throws RemoteException
+	 * @throws IOException
 	 */
-	public DeviceInformation createEmulator(DeviceParameters parameters) throws RemoteException;
+	public void createAndStartEmulator(DeviceParameters parameters) throws RemoteException, IOException;
 
 	/**
 	 * Closes the process of an emulator specified by it's serial number.
@@ -76,8 +78,15 @@ public interface IAgentManager extends Remote
 	 * @param serialNumber
 	 *        Serial number of the emulator we want erased.
 	 * @throws RemoteException
+	 * @throws IOException
+	 * @throws DeviceNotFoundException
+	 * @throws NotPossibleForDeviceException
 	 */
-	public void eraseEmulator(String serialNumber) throws RemoteException;
+	public void eraseEmulator(String serialNumber)
+		throws RemoteException,
+			IOException,
+			DeviceNotFoundException,
+			NotPossibleForDeviceException;
 
 	/**
 	 * Gets the unique identifier of the current Agent.
