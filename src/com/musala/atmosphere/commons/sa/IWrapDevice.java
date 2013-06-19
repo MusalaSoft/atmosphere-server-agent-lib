@@ -60,9 +60,11 @@ public interface IWrapDevice extends Remote
 	 *        List of string commands that should be executed in the shell of the device.
 	 * @return List of string responses, one for each executed shell command.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
 	public java.util.List<String> executeSequenceOfShellCommands(java.util.List<String> commandsList)
-		throws RemoteException;
+		throws RemoteException,
+			CommandFailedException;
 
 	/**
 	 * Sets the maximum upload/download speed for the device.
