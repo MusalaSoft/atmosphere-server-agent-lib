@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import com.musala.atmosphere.commons.Pair;
 import com.musala.atmosphere.commons.sa.exceptions.CommandFailedException;
-import com.musala.atmosphere.commons.sa.util.Pair;
 
 /**
  * <p>
@@ -94,7 +94,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Creates a new .apk file that will be installed on the current device. Use appendToAPK(Byte[]) and
-	 * buildAndInstallAPK() to tranfer the file. If another file is being transfered, it will be discarded.
+	 * buildAndInstallAPK() to transfer the file. If another file is being transfered, it will be discarded.
 	 * 
 	 * @throws RemoteException
 	 * @throws IOException

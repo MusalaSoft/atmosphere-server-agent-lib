@@ -2,7 +2,7 @@ package com.musala.atmosphere.commons.sa;
 
 import java.io.Serializable;
 
-import com.musala.atmosphere.commons.sa.util.Pair;
+import com.musala.atmosphere.commons.Pair;
 
 /**
  * <p>
