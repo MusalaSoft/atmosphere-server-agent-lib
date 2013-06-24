@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import com.musala.atmosphere.commons.BatteryState;
+import com.musala.atmosphere.commons.CommandFailedException;
 import com.musala.atmosphere.commons.Pair;
-import com.musala.atmosphere.commons.sa.exceptions.CommandFailedException;
 
 /**
  * <p>
