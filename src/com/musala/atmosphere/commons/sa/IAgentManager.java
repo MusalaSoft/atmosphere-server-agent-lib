@@ -107,4 +107,12 @@ public interface IAgentManager extends Remote
 	 * @throws RemoteException
 	 */
 	public void registerServer(String serverIPAddress, int serverRmiPort) throws RemoteException;
+
+	/**
+	 * Returns the address of the machine that invokes this method.
+	 * 
+	 * @return IP address identifier.
+	 * @throws RemoteException
+	 */
+	public String getInvokerIpAddress() throws RemoteException;
 }

@@ -91,7 +91,7 @@ public interface IWrapDevice extends Remote
 	 * @return Image in an array of bytes that, when dumped to a file, shows the device display.
 	 * @throws RemoteException
 	 */
-	public Byte[] getScreenshot() throws RemoteException;
+	public byte[] getScreenshot() throws RemoteException;
 
 	/**
 	 * Creates a new .apk file that will be installed on the current device. Use appendToAPK(Byte[]) and

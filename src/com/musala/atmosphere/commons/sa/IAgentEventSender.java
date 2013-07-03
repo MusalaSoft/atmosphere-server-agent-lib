@@ -19,7 +19,11 @@ public interface IAgentEventSender extends Remote
 	 * 
 	 * @param agentId
 	 *        The calling agent's ID.
+	 * @param changedDeviceRmiId
+	 *        The wrapper RMI ID of the device that changed.
+	 * @param available
+	 *        Passed true if the device that changed is now available, false otherwise.
 	 * @throws RemoteException
 	 */
-	public void deviceListChanged(String agentId) throws RemoteException;
+	public void deviceListChanged(String agentId, String changedDeviceRmiId, boolean available) throws RemoteException;
 }
