@@ -40,8 +40,9 @@ public interface IWrapDevice extends Remote
 	 * 
 	 * @return Memory amount in MB.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
-	public int getFreeRAM() throws RemoteException;
+	public long getFreeRAM() throws RemoteException, CommandFailedException;
 
 	/**
 	 * Executes a command on the device's shell and returns the result of the execution.
