@@ -9,7 +9,12 @@ public enum RmiStringConstants
 	/**
 	 * String, under which the server's AgentEventSender class is published in the RMI registry.
 	 */
-	AGENT_EVENT_SENDER("AgentEventSender");
+	AGENT_EVENT_SENDER("AgentEventSender"),
+	/**
+	 * String, under which the server's {@link ConnectionRequestReceiver ConnectionRequestReceiver} class is published
+	 * in the RMI registry.
+	 */
+	CONNECTION_REQUEST_RECEIVER("ConnectionRequestReceiver");
 
 	private String value;
 
