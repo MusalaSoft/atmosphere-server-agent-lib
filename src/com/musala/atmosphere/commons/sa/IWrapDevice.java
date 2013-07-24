@@ -74,8 +74,9 @@ public interface IWrapDevice extends Remote
 	 * @param speeds
 	 *        A pair of ints - first for upload, second for download speed.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
-	public void setNetworkSpeed(Pair<Integer, Integer> speeds) throws RemoteException;
+	public void setNetworkSpeed(Pair<Integer, Integer> speeds) throws RemoteException, CommandFailedException;
 
 	/**
 	 * Sets the battery level for this emulator. Available for emulators only.
@@ -83,8 +84,9 @@ public interface IWrapDevice extends Remote
 	 * @param level
 	 *        The new battery level in percents.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
-	public void setBatteryLevel(int level) throws RemoteException;
+	public void setBatteryLevel(int level) throws RemoteException, CommandFailedException;
 
 	/**
 	 * Returns a JPEG compressed display screenshot.
@@ -176,8 +178,9 @@ public interface IWrapDevice extends Remote
 	 * 
 	 * @return a member of the {@link BatteryState BatteryState} enumeration.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
-	public BatteryState getBatteryState() throws RemoteException;
+	public BatteryState getBatteryState() throws RemoteException, CommandFailedException;
 
 	/**
 	 * Sets the battery state of the device.
@@ -185,6 +188,26 @@ public interface IWrapDevice extends Remote
 	 * @param state
 	 *        new battery state.
 	 * @throws RemoteException
+	 * @throws CommandFailedException
 	 */
-	public void setBatteryState(BatteryState state) throws RemoteException;
+	public void setBatteryState(BatteryState state) throws RemoteException, CommandFailedException;
+
+	/**
+	 * Gets the power state of the device.
+	 * 
+	 * @return boolean value; true if power is connected and false if power is disconnected.
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public boolean getPowerState() throws RemoteException, CommandFailedException;
+
+	/**
+	 * Sets the power state of the device
+	 * 
+	 * @param state
+	 *        new power state
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void setPowerState(boolean state) throws RemoteException, CommandFailedException;
 }
