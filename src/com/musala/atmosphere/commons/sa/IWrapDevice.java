@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 
 import com.musala.atmosphere.commons.BatteryState;
 import com.musala.atmosphere.commons.CommandFailedException;
+import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.Pair;
 
 /**
@@ -210,7 +211,7 @@ public interface IWrapDevice extends Remote
 	 * @throws RemoteException
 	 */
 	public void setPowerState(boolean state) throws RemoteException, CommandFailedException;
-	
+
 	/**
 	 * Sets the airplane mode of the testing device.
 	 * 
@@ -220,4 +221,14 @@ public interface IWrapDevice extends Remote
 	 * @throws RemoteException
 	 */
 	public void setAirplaneMode(boolean airplaneMode) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Sets new orientation of the testing device. Can only be applied on emulators.
+	 * 
+	 * @param deviceOrientation
+	 *        - new device orientation to be set
+	 * @throws RemoteException
+	 * @throws CommandFailedException
+	 */
+	public void setOrientation(DeviceOrientation deviceOrientation) throws CommandFailedException, RemoteException;
 }
