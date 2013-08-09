@@ -22,7 +22,7 @@ public interface IAgentEventSender extends Remote
 	 * @param changedDeviceRmiId
 	 *        The wrapper RMI ID of the device that changed.
 	 * @param available
-	 *        Passed true if the device that changed is now available, false otherwise.
+	 *        Passed true if the device that changed is now available (connected), false otherwise (disconnected).
 	 * @throws RemoteException
 	 */
 	public void deviceListChanged(String agentId, String changedDeviceRmiId, boolean available) throws RemoteException;
