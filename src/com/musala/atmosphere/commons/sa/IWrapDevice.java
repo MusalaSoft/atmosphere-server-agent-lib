@@ -136,10 +136,8 @@ public interface IWrapDevice extends Remote
 	 * Discards all transfered .apk file data.
 	 * 
 	 * @throws RemoteException
-	 * @throws IOException
-	 *         when a file system error occurs on the agent.
 	 */
-	public void discardAPK() throws RemoteException, IOException;
+	public void discardAPK() throws RemoteException;
 
 	/**
 	 * Gets a {@link DeviceInformation DeviceInformation} structure for the wrapped IDevice in this wrapper.
