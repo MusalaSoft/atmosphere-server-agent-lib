@@ -27,16 +27,6 @@ public interface IAgentManager extends Remote
 	public List<String> getAllDeviceWrappers() throws RemoteException;
 
 	/**
-	 * Checks if a device with exact serial number is present on this Agent.
-	 * 
-	 * @param serialNumber
-	 *        Serial number of the device we are searching for.
-	 * @return True if device with the passed serial number is available on the current agent, false otherwise.
-	 * @throws RemoteException
-	 */
-	public boolean isDevicePresent(String serialNumber) throws RemoteException;
-
-	/**
 	 * Creates and starts a new emulator with specific DeviceParameters or just starts an emulator with the
 	 * DeviceParameters if such an emulator already exists.
 	 * 
