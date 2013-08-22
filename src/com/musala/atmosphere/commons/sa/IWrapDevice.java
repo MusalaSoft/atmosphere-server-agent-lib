@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 
 import com.musala.atmosphere.commons.BatteryState;
 import com.musala.atmosphere.commons.CommandFailedException;
+import com.musala.atmosphere.commons.DeviceAcceleration;
 import com.musala.atmosphere.commons.DeviceInformation;
 import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.Pair;
@@ -230,4 +231,14 @@ public interface IWrapDevice extends Remote
 	 * @throws CommandFailedException
 	 */
 	public void setOrientation(DeviceOrientation deviceOrientation) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Sets the acceleration of the testing device.
+	 * 
+	 * @param deviceAcceleration
+	 *        - desired device acceleration.
+	 * @return
+	 * @throws EmulatorConnectionFailedException
+	 */
+	public void setAcceleration(DeviceAcceleration deviceAcceleration) throws CommandFailedException, RemoteException;
 }
