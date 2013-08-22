@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter;
 
 import org.apache.log4j.Logger;
 
+import com.musala.atmosphere.commons.Pair;
+
 public class ConsoleControl
 {
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -90,5 +92,27 @@ public class ConsoleControl
 	public void writeLine(String message)
 	{
 		write(message + LINE_SEPARATOR);
+	}
+
+	/**
+	 * Parses given shell command in two: command and parameters, and returns the result as a Pair.
+	 * 
+	 * @param passedCommand
+	 * @return - Pair<String, String[]> where the key is the command and the value is array with the passed parameters
+	 *         as strings.
+	 */
+	public static Pair<String, String[]> parseShellCommand(String passedCommand)
+	{
+		// parsing the command where character is ' ' OR ':'
+		String[] args = passedCommand.trim().split("[ :]");
+		int numberOfParams = args.length - 1;
+		String command = args[0];
+		String[] params = new String[numberOfParams];
+
+		// Copy args array in params shifted with one position.
+		System.arraycopy(args, 1, params, 0, numberOfParams);
+
+		Pair<String, String[]> parsedShellCommand = new Pair<String, String[]>(command, params);
+		return parsedShellCommand;
 	}
 }
