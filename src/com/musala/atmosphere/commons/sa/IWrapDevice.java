@@ -166,6 +166,15 @@ public interface IWrapDevice extends Remote
 	public int getNetworkLatency() throws RemoteException;
 
 	/**
+	 * Gets the device orientation of the device. The orientation sensor on the device must be active.
+	 * 
+	 * @return - DeviceOrientation instance.
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public DeviceOrientation getDeviceOrientation() throws RemoteException, CommandFailedException;
+
+	/**
 	 * Sets the network latency of the device.
 	 * 
 	 * @param latency
@@ -226,11 +235,13 @@ public interface IWrapDevice extends Remote
 	 * Sets new orientation of the testing device. Can only be applied on emulators.
 	 * 
 	 * @param deviceOrientation
-	 *        - new device orientation to be set
+	 *        - new device orientation to be set.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
 	 */
-	public void setOrientation(DeviceOrientation deviceOrientation) throws CommandFailedException, RemoteException;
+	public void setDeviceOrientation(DeviceOrientation deviceOrientation)
+		throws CommandFailedException,
+			RemoteException;
 
 	/**
 	 * Sets the acceleration of the testing device.
