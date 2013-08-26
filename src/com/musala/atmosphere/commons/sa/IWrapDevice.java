@@ -175,6 +175,15 @@ public interface IWrapDevice extends Remote
 	public DeviceOrientation getDeviceOrientation() throws RemoteException, CommandFailedException;
 
 	/**
+	 * Gets the device acceleration of the device. The orientation sensor on the device must be active.
+	 * 
+	 * @return - DeviceAcceleration instance.
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public DeviceAcceleration getDeviceAcceleration() throws RemoteException, CommandFailedException;
+
+	/**
 	 * Sets the network latency of the device.
 	 * 
 	 * @param latency
@@ -244,12 +253,12 @@ public interface IWrapDevice extends Remote
 			RemoteException;
 
 	/**
-	 * Sets the acceleration of the testing device.
+	 * Sets new acceleration of the testing device. Can only be applied on emulators.
 	 * 
 	 * @param deviceAcceleration
 	 *        - desired device acceleration.
-	 * @return
-	 * @throws EmulatorConnectionFailedException
+	 * @throws CommandFailedException
+	 * @throws RemoteException
 	 */
 	public void setAcceleration(DeviceAcceleration deviceAcceleration) throws CommandFailedException, RemoteException;
 }
