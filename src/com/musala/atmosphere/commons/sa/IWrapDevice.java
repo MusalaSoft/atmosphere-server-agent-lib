@@ -10,6 +10,7 @@ import com.musala.atmosphere.commons.DeviceAcceleration;
 import com.musala.atmosphere.commons.DeviceInformation;
 import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.Pair;
+import com.musala.atmosphere.commons.ScreenOrientation;
 
 /**
  * <p>
@@ -251,6 +252,25 @@ public interface IWrapDevice extends Remote
 	public void setDeviceOrientation(DeviceOrientation deviceOrientation)
 		throws CommandFailedException,
 			RemoteException;
+
+	/**
+	 * Control whether the accelerometer will be used to change screen orientation
+	 * 
+	 * @param autoRotation
+	 *        - if false, it will not be used unless explicitly requested by the application; if true, it will be used
+	 *        by default unless explicitly disabled by the application.
+	 * @throws RemoteException
+	 */
+	public void setAutoRotation(boolean autoRotation) throws RemoteException;
+
+	/**
+	 * Sets new screen orientation of the device.
+	 * 
+	 * @param screenOrientation
+	 *        - new screen orientation to be set
+	 * @throws RemoteException
+	 */
+	public void setScreenOrientation(ScreenOrientation screenOrientation) throws RemoteException;
 
 	/**
 	 * Sets new acceleration of the testing device. Can only be applied on emulators.
