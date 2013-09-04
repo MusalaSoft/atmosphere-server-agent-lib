@@ -6,9 +6,11 @@ import java.rmi.RemoteException;
 
 import com.musala.atmosphere.commons.BatteryState;
 import com.musala.atmosphere.commons.CommandFailedException;
+import com.musala.atmosphere.commons.ConnectionType;
 import com.musala.atmosphere.commons.DeviceAcceleration;
 import com.musala.atmosphere.commons.DeviceInformation;
 import com.musala.atmosphere.commons.DeviceOrientation;
+import com.musala.atmosphere.commons.MobileDataState;
 import com.musala.atmosphere.commons.Pair;
 import com.musala.atmosphere.commons.ScreenOrientation;
 
@@ -281,4 +283,33 @@ public interface IWrapDevice extends Remote
 	 * @throws RemoteException
 	 */
 	public void setAcceleration(DeviceAcceleration deviceAcceleration) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Sets the mobile data state of an <b> emulator </b>
+	 * 
+	 * @param state
+	 *        - a member of the {@link MobileDataState} enumeration.
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void setMobileDataState(MobileDataState state) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Gets the mobile data state of an emulator.
+	 * 
+	 * @return a member of the {@link MobileDataState} enum.
+	 * @throws RemoteException
+	 * @throws CommandFailedException
+	 */
+	public ConnectionType getConnectionType() throws RemoteException, CommandFailedException;
+
+	/**
+	 * Gets the mobile data state of an <b> emulator</b>.
+	 * 
+	 * @return the mobile data state of an emulator, a member of the {@link MobileDataState} enum.
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public MobileDataState getMobileDataState() throws CommandFailedException, RemoteException;
+
 }
