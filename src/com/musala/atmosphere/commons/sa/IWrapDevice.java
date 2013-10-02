@@ -11,8 +11,7 @@ import com.musala.atmosphere.commons.DeviceAcceleration;
 import com.musala.atmosphere.commons.DeviceInformation;
 import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.MobileDataState;
-import com.musala.atmosphere.commons.Pair;
-import com.musala.atmosphere.commons.ScreenOrientation;
+import com.musala.atmosphere.commons.util.Pair;
 
 /**
  * <p>
@@ -104,8 +103,9 @@ public interface IWrapDevice extends Remote
 	public byte[] getScreenshot() throws RemoteException, CommandFailedException;
 
 	/**
-	 * Creates a new .apk file that will be installed on the current device. Use appendToAPK(Byte[]) and
-	 * buildAndInstallAPK() to transfer the file. If another file is being transfered, it will be discarded.
+	 * Creates a new .apk file that will be installed on the current device. Use {@link #appendToAPK(byte[])
+	 * appendToAPK(byte[])} and {@link #buildAndInstallAPK() buildAndInstallAPK()} to transfer the file. If another file
+	 * is being transfered, it will be discarded.
 	 * 
 	 * @throws RemoteException
 	 * @throws IOException
@@ -114,8 +114,9 @@ public interface IWrapDevice extends Remote
 	public void initAPKInstall() throws RemoteException, IOException;
 
 	/**
-	 * Appends bytes to the .apk file that is currently being built. Use buildAndInstallAPK() to install the transfered
-	 * .apk file or discardAPK() to discard all transfered data.
+	 * Appends bytes to the .apk file that is currently being built. Use {@link #buildAndInstallAPK()
+	 * buildAndInstallAPK()} to install the transfered .apk file or {@link #discardAPK() discardAPK()} to discard all
+	 * transfered data.
 	 * 
 	 * @param bytes
 	 *        Byte array to be appended to the .apk file that is being built.
@@ -234,16 +235,6 @@ public interface IWrapDevice extends Remote
 	public void setPowerState(boolean state) throws RemoteException, CommandFailedException;
 
 	/**
-	 * Sets the airplane mode of the testing device.
-	 * 
-	 * @param airplaneMode
-	 *        True if in airplane mode, false if not.
-	 * @throws CommandFailedException
-	 * @throws RemoteException
-	 */
-	public void setAirplaneMode(boolean airplaneMode) throws CommandFailedException, RemoteException;
-
-	/**
 	 * Sets new orientation of the testing device. Can only be applied on emulators.
 	 * 
 	 * @param deviceOrientation
@@ -254,25 +245,6 @@ public interface IWrapDevice extends Remote
 	public void setDeviceOrientation(DeviceOrientation deviceOrientation)
 		throws CommandFailedException,
 			RemoteException;
-
-	/**
-	 * Control whether the accelerometer will be used to change screen orientation
-	 * 
-	 * @param autoRotation
-	 *        - if false, it will not be used unless explicitly requested by the application; if true, it will be used
-	 *        by default unless explicitly disabled by the application.
-	 * @throws RemoteException
-	 */
-	public void setAutoRotation(boolean autoRotation) throws RemoteException;
-
-	/**
-	 * Sets new screen orientation of the device.
-	 * 
-	 * @param screenOrientation
-	 *        - new screen orientation to be set
-	 * @throws RemoteException
-	 */
-	public void setScreenOrientation(ScreenOrientation screenOrientation) throws RemoteException;
 
 	/**
 	 * Sets new acceleration of the testing device. Can only be applied on emulators.

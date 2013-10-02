@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 
 import org.apache.log4j.Logger;
 
-import com.musala.atmosphere.commons.Pair;
+import com.musala.atmosphere.commons.util.Pair;
 
 public class ConsoleControl
 {
