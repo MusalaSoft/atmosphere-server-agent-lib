@@ -24,13 +24,6 @@ import com.musala.atmosphere.commons.util.Pair;
 public interface IWrapDevice extends Remote
 {
 	/**
-	 * Validates whether a communication to the ATMOSPHERE service is available.
-	 * 
-	 * @return - true if communication is available; false otherwise.
-	 */
-	public boolean validateServiceCommunication() throws RemoteException;
-
-	/**
 	 * Gets the maximum upload/download speed of the data network, available to the device.
 	 * 
 	 * @return Network bandwidth in kbit/s.
