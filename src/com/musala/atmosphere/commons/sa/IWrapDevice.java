@@ -284,4 +284,14 @@ public interface IWrapDevice extends Remote
 	 */
 	public MobileDataState getMobileDataState() throws CommandFailedException, RemoteException;
 
+	/**
+	 * Sets the WiFi state on the testing device.
+	 * 
+	 * @param state
+	 *        - true if the WiFi should be on; false if it should be off.
+	 * 
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void setWiFi(boolean state) throws CommandFailedException, RemoteException;
 }
