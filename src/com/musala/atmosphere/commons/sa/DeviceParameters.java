@@ -37,7 +37,7 @@ public class DeviceParameters implements Serializable
 	/**
 	 * Desired available random access memory.
 	 */
-	private int ram;
+	private long ram;
 
 	public int getApiLevel()
 	{
@@ -69,12 +69,12 @@ public class DeviceParameters implements Serializable
 		this.dpi = dpi;
 	}
 
-	public int getRam()
+	public long getRam()
 	{
 		return ram;
 	}
 
-	public void setRam(int ram)
+	public void setRam(long ram)
 	{
 		this.ram = ram;
 	}

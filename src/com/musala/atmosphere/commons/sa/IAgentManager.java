@@ -105,4 +105,22 @@ public interface IAgentManager extends Remote
 	 * @throws RemoteException
 	 */
 	public String getInvokerIpAddress() throws RemoteException;
+
+	/**
+	 * Gets the hardware specifications of the device the agent is running on.
+	 * 
+	 * @return {@link SystemSpecification} object describing the specifications of the device the agent is running on.
+	 * @throws RemoteException
+	 */
+	public SystemSpecification getSpecification() throws RemoteException;
+
+	/**
+	 * Returns a score based on how well an emulator with given parameters will perform on the agent.
+	 * 
+	 * @param requiredDeviceParameters
+	 *        - the parameters of the emulator device.
+	 * @return a score based on how well the emulator will perform on the agent.
+	 * @throws RemoteException
+	 */
+	public double getPerformanceScore(DeviceParameters requiredDeviceParameters) throws RemoteException;
 }
