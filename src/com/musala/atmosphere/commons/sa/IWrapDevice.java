@@ -11,6 +11,7 @@ import com.musala.atmosphere.commons.DeviceAcceleration;
 import com.musala.atmosphere.commons.DeviceInformation;
 import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.MobileDataState;
+import com.musala.atmosphere.commons.SmsMessage;
 import com.musala.atmosphere.commons.util.Pair;
 
 /**
@@ -294,4 +295,14 @@ public interface IWrapDevice extends Remote
 	 * @throws RemoteException
 	 */
 	public void setWiFi(boolean state) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Sends SMS to the testing device.
+	 * 
+	 * @param smsMessage
+	 *        - message, that will be sent to the device
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void receiveSms(SmsMessage smsMessage) throws CommandFailedException, RemoteException;
 }
