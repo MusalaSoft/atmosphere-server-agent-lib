@@ -11,6 +11,7 @@ import com.musala.atmosphere.commons.DeviceAcceleration;
 import com.musala.atmosphere.commons.DeviceInformation;
 import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.MobileDataState;
+import com.musala.atmosphere.commons.PhoneNumber;
 import com.musala.atmosphere.commons.SmsMessage;
 import com.musala.atmosphere.commons.util.Pair;
 
@@ -305,4 +306,48 @@ public interface IWrapDevice extends Remote
 	 * @throws RemoteException
 	 */
 	public void receiveSms(SmsMessage smsMessage) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Sends a call to the emulator.
+	 * 
+	 * @param phoneNumber
+	 *        - the phone number, that will call the emulator.
+	 * 
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void receiveCall(PhoneNumber phoneNumber) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Accepts a call to the emulator.
+	 * 
+	 * @param phoneNumber
+	 *        - the phone number, that calls the emulator.
+	 * 
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void acceptCall(PhoneNumber phoneNumber) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Holds a call to the emulator.
+	 * 
+	 * @param phoneNumber
+	 *        - the phone number, that calls the emulator.
+	 * 
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void holdCall(PhoneNumber phoneNumber) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Cancels a call to the emulator.
+	 * 
+	 * @param phoneNumber
+	 *        - the phone number, that calls the emulator.
+	 * 
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	public void cancelCall(PhoneNumber phoneNumber) throws CommandFailedException, RemoteException;
 }
