@@ -13,6 +13,7 @@ import com.musala.atmosphere.commons.DeviceOrientation;
 import com.musala.atmosphere.commons.MobileDataState;
 import com.musala.atmosphere.commons.PhoneNumber;
 import com.musala.atmosphere.commons.SmsMessage;
+import com.musala.atmosphere.commons.gesture.Gesture;
 import com.musala.atmosphere.commons.util.Pair;
 
 /**
@@ -306,6 +307,16 @@ public interface IWrapDevice extends Remote
 	 * @throws RemoteException
 	 */
 	public void receiveSms(SmsMessage smsMessage) throws CommandFailedException, RemoteException;
+
+	/**
+	 * Executes a predefined gesture on the current device.
+	 * 
+	 * @param gesture
+	 *        - the gesture to be executed.
+	 * @throws CommandFailedException
+	 * @throws RemoteException
+	 */
+	void executeGesture(Gesture gesture) throws CommandFailedException, RemoteException;
 
 	/**
 	 * Sends a call to the emulator.
