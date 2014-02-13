@@ -21,15 +21,15 @@ import com.musala.atmosphere.commons.util.Pair;
  * <p>
  * Common interface for all device wrappers, used in RMI.
  * </p>
- * 
+ *
  * @author georgi.gaydarov
- * 
+ *
  */
 public interface IWrapDevice extends Remote
 {
 	/**
 	 * Gets the maximum upload/download speed of the data network, available to the device.
-	 * 
+	 *
 	 * @return Network bandwidth in kbit/s.
 	 * @throws RemoteException
 	 */
@@ -37,7 +37,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the battery level of the device.
-	 * 
+	 *
 	 * @return Capacity in percents.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
@@ -46,7 +46,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the amount of free RAM on the device.
-	 * 
+	 *
 	 * @return Memory amount in MB.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
@@ -55,7 +55,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Executes a command on the device's shell and returns the result of the execution.
-	 * 
+	 *
 	 * @param command
 	 *        Shell command to be executed
 	 * @return Shell response from the command execution.
@@ -66,7 +66,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Executes a list of shell commands one right after the previous.
-	 * 
+	 *
 	 * @param commandsList
 	 *        List of string commands that should be executed in the shell of the device.
 	 * @return List of string responses, one for each executed shell command.
@@ -79,7 +79,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the maximum upload/download speed for the device.
-	 * 
+	 *
 	 * @param speeds
 	 *        A pair of ints - first for upload, second for download speed.
 	 * @throws RemoteException
@@ -89,7 +89,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the battery level for this emulator. Available for emulators only.
-	 * 
+	 *
 	 * @param level
 	 *        The new battery level in percents.
 	 * @throws RemoteException
@@ -99,7 +99,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Returns a JPEG compressed display screenshot.
-	 * 
+	 *
 	 * @return Image in an array of bytes that, when dumped to a file, shows the device display.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
@@ -107,10 +107,10 @@ public interface IWrapDevice extends Remote
 	public byte[] getScreenshot() throws RemoteException, CommandFailedException;
 
 	/**
-	 * Creates a new .apk file that will be installed on the current device. Use {@link #appendToAPK(byte[])
+	 * Creates a new .apk file that will be installed on the current device. Use {@link #appendToAPK(byte[], int)
 	 * appendToAPK(byte[])} and {@link #buildAndInstallAPK() buildAndInstallAPK()} to transfer the file. If another file
 	 * is being transfered, it will be discarded.
-	 * 
+	 *
 	 * @throws RemoteException
 	 * @throws IOException
 	 *         when a file system error occurs on the agent.
@@ -121,18 +121,19 @@ public interface IWrapDevice extends Remote
 	 * Appends bytes to the .apk file that is currently being built. Use {@link #buildAndInstallAPK()
 	 * buildAndInstallAPK()} to install the transfered .apk file or {@link #discardAPK() discardAPK()} to discard all
 	 * transfered data.
-	 * 
+	 *
 	 * @param bytes
 	 *        Byte array to be appended to the .apk file that is being built.
+	 * @param length The number of actual bytes to write
 	 * @throws RemoteException
 	 * @throws IOException
 	 *         when a file system error occurs on the agent.
 	 */
-	public void appendToAPK(byte[] bytes) throws RemoteException, IOException;
+	public void appendToAPK(byte[] bytes, int length) throws RemoteException, IOException;
 
 	/**
 	 * Builds the transfered .apk file, uploads and then installs it on the current device.
-	 * 
+	 *
 	 * @throws RemoteException
 	 * @throws CommandFailedException
 	 *         when the install command fails on the device.
@@ -143,14 +144,14 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Discards all transfered .apk file data.
-	 * 
+	 *
 	 * @throws RemoteException
 	 */
 	public void discardAPK() throws RemoteException;
 
 	/**
 	 * Gets a {@link DeviceInformation DeviceInformation} structure for the wrapped IDevice in this wrapper.
-	 * 
+	 *
 	 * @return The populated {@link DeviceInformation DeviceInformation}.
 	 * @throws RemoteException
 	 */
@@ -158,7 +159,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the uiautomator XML dump from a device and returns it as a string.
-	 * 
+	 *
 	 * @return UI XML file dump in a string.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
@@ -167,7 +168,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the device network latency.
-	 * 
+	 *
 	 * @return latency, in ms.
 	 * @throws RemoteException
 	 */
@@ -175,7 +176,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the device orientation of the device. The orientation sensor on the device must be active.
-	 * 
+	 *
 	 * @return - DeviceOrientation instance.
 	 * @throws CommandFailedException
 	 * @throws RemoteException
@@ -184,7 +185,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the device acceleration of the device. The orientation sensor on the device must be active.
-	 * 
+	 *
 	 * @return - DeviceAcceleration instance.
 	 * @throws CommandFailedException
 	 * @throws RemoteException
@@ -193,7 +194,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the network latency of the device.
-	 * 
+	 *
 	 * @param latency
 	 *        network latency, in ms.
 	 * @throws RemoteException
@@ -202,7 +203,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the battery state of the device.
-	 * 
+	 *
 	 * @return a member of the {@link BatteryState BatteryState} enumeration.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
@@ -211,7 +212,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the battery state of the device.
-	 * 
+	 *
 	 * @param state
 	 *        new battery state.
 	 * @throws RemoteException
@@ -221,7 +222,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the power state of the device.
-	 * 
+	 *
 	 * @return boolean value; true if power is connected and false if power is disconnected.
 	 * @throws CommandFailedException
 	 * @throws RemoteException
@@ -230,7 +231,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the power state of the device
-	 * 
+	 *
 	 * @param state
 	 *        new power state
 	 * @throws CommandFailedException
@@ -240,7 +241,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets new orientation of the testing device. Can only be applied on emulators.
-	 * 
+	 *
 	 * @param deviceOrientation
 	 *        - new device orientation to be set.
 	 * @throws RemoteException
@@ -252,7 +253,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets new acceleration of the testing device. Can only be applied on emulators.
-	 * 
+	 *
 	 * @param deviceAcceleration
 	 *        - desired device acceleration.
 	 * @throws CommandFailedException
@@ -262,7 +263,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the mobile data state of an <b> emulator </b>
-	 * 
+	 *
 	 * @param state
 	 *        - a member of the {@link MobileDataState} enumeration.
 	 * @throws CommandFailedException
@@ -272,7 +273,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the mobile data state of an emulator.
-	 * 
+	 *
 	 * @return a member of the {@link MobileDataState} enum.
 	 * @throws RemoteException
 	 * @throws CommandFailedException
@@ -281,7 +282,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Gets the mobile data state of an <b> emulator</b>.
-	 * 
+	 *
 	 * @return the mobile data state of an emulator, a member of the {@link MobileDataState} enum.
 	 * @throws CommandFailedException
 	 * @throws RemoteException
@@ -290,10 +291,10 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sets the WiFi state on the testing device.
-	 * 
+	 *
 	 * @param state
 	 *        - true if the WiFi should be on; false if it should be off.
-	 * 
+	 *
 	 * @throws CommandFailedException
 	 * @throws RemoteException
 	 */
@@ -301,7 +302,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sends SMS to the testing device.
-	 * 
+	 *
 	 * @param smsMessage
 	 *        - message, that will be sent to the device
 	 * @throws CommandFailedException
@@ -311,7 +312,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Executes a predefined gesture on the current device.
-	 * 
+	 *
 	 * @param gesture
 	 *        - the gesture to be executed.
 	 * @throws CommandFailedException
@@ -321,10 +322,10 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Sends a call to the emulator.
-	 * 
+	 *
 	 * @param phoneNumber
 	 *        - the phone number, that will call the emulator.
-	 * 
+	 *
 	 * @throws CommandFailedException
 	 * @throws RemoteException
 	 */
@@ -332,10 +333,10 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Accepts a call to the emulator.
-	 * 
+	 *
 	 * @param phoneNumber
 	 *        - the phone number, that calls the emulator.
-	 * 
+	 *
 	 * @throws CommandFailedException
 	 * @throws RemoteException
 	 */
@@ -343,10 +344,10 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Holds a call to the emulator.
-	 * 
+	 *
 	 * @param phoneNumber
 	 *        - the phone number, that calls the emulator.
-	 * 
+	 *
 	 * @throws CommandFailedException
 	 * @throws RemoteException
 	 */
@@ -354,10 +355,10 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Cancels a call to the emulator.
-	 * 
+	 *
 	 * @param phoneNumber
 	 *        - the phone number, that calls the emulator.
-	 * 
+	 *
 	 * @throws CommandFailedException
 	 * @throws RemoteException
 	 */
@@ -365,7 +366,7 @@ public interface IWrapDevice extends Remote
 
 	/**
 	 * Obtains information about the telephony services on the device.
-	 * 
+	 *
 	 * @return {@link TelephonyInformation} instance.
 	 * @throws CommandFailedException
 	 * @throws RemoteException
