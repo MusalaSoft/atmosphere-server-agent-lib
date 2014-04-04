@@ -12,71 +12,74 @@ import com.musala.atmosphere.commons.util.Pair;
  * @author georgi.gaydarov
  * 
  */
-public class DeviceParameters implements Serializable
-{
-	/**
+public class DeviceParameters implements Serializable {
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -5084666297559414668L;
+    private static final long serialVersionUID = -5084666297559414668L;
 
-	/**
-	 * Desired Android API level.
-	 */
-	private int apiLevel;
+    /**
+     * Desired Android API level.
+     */
+    private Integer apiLevel;
 
-	/**
-	 * Desired screen resolution.
-	 */
-	private Pair<Integer, Integer> resolution;
+    /**
+     * Desired screen resolution.
+     */
+    private Pair<Integer, Integer> resolution;
 
-	/**
-	 * Desired screen dots per inch.
-	 */
-	private int dpi;
+    /**
+     * Desired screen dots per inch.
+     */
+    private Integer dpi;
 
-	/**
-	 * Desired available random access memory.
-	 */
-	private long ram;
+    /**
+     * Desired available random access memory.
+     */
+    private Long ram;
 
-	public int getApiLevel()
-	{
-		return apiLevel;
-	}
+    /**
+     * Desired Android target.
+     */
+    private String target;
 
-	public void setApiLevel(int apiLevel)
-	{
-		this.apiLevel = apiLevel;
-	}
+    public int getApiLevel() {
+        return apiLevel;
+    }
 
-	public Pair<Integer, Integer> getResolution()
-	{
-		return resolution;
-	}
+    public void setApiLevel(int apiLevel) {
+        this.apiLevel = apiLevel;
+    }
 
-	public void setResolution(Pair<Integer, Integer> resolution)
-	{
-		this.resolution = resolution;
-	}
+    public Pair<Integer, Integer> getResolution() {
+        return resolution;
+    }
 
-	public int getDpi()
-	{
-		return dpi;
-	}
+    public void setResolution(Pair<Integer, Integer> resolution) {
+        this.resolution = resolution;
+    }
 
-	public void setDpi(int dpi)
-	{
-		this.dpi = dpi;
-	}
+    public int getDpi() {
+        return dpi;
+    }
 
-	public long getRam()
-	{
-		return ram;
-	}
+    public void setDpi(int dpi) {
+        this.dpi = dpi;
+    }
 
-	public void setRam(long ram)
-	{
-		this.ram = ram;
-	}
+    public long getRam() {
+        return ram;
+    }
 
+    public void setRam(long ram) {
+        this.ram = ram;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
 }
