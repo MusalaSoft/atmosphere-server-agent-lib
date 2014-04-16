@@ -3,7 +3,6 @@ package com.musala.atmosphere.commons.sa;
 import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.List;
 
 import com.musala.atmosphere.commons.sa.exceptions.DeviceNotFoundException;
 import com.musala.atmosphere.commons.sa.exceptions.NotPossibleForDeviceException;
@@ -17,14 +16,6 @@ import com.musala.atmosphere.commons.sa.exceptions.NotPossibleForDeviceException
  * 
  */
 public interface IAgentManager extends Remote {
-    /**
-     * Gets a list of all published and available device wrapper RMI string identifiers on the current Agent.
-     * 
-     * @return List of the DeviceInformation objects, one for every available device on the current Agent.
-     * @throws RemoteException
-     */
-    public List<String> getAllDeviceWrappers() throws RemoteException;
-
     /**
      * Creates and starts a new emulator with specific DeviceParameters or just starts an emulator with the
      * DeviceParameters if such an emulator already exists.
