@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import com.musala.atmosphere.commons.exceptions.CommandFailedException;
+import com.musala.atmosphere.commons.sa.exceptions.DeviceBootTimeoutReachedException;
 import com.musala.atmosphere.commons.sa.exceptions.DeviceNotFoundException;
 import com.musala.atmosphere.commons.sa.exceptions.NotPossibleForDeviceException;
+import com.musala.atmosphere.commons.sa.exceptions.TimeoutReachedException;
 
 /**
  * <p>
@@ -26,7 +29,7 @@ public interface IAgentManager extends Remote {
      * @throws RemoteException
      * @throws IOException
      */
-    public void createAndStartEmulator(DeviceParameters parameters) throws RemoteException, IOException;
+    public String createAndStartEmulator(DeviceParameters parameters) throws RemoteException, IOException;
 
     /**
      * Closes the process of an emulator specified by it's serial number.
@@ -89,4 +92,56 @@ public interface IAgentManager extends Remote {
      * @throws RemoteException
      */
     public double getPerformanceScore(DeviceParameters requiredDeviceParameters) throws RemoteException;
+
+    /**
+     * Checks whether any emulator device is present on the agent.
+     * 
+     * @return true if an emulator device is found on the agent, false if not.
+     * @throws RemoteException
+     */
+    public boolean isAnyEmulatorPresent() throws RemoteException;
+
+    /**
+     * Gets the serial number of an emulator with given AVD name.
+     * 
+     * @param emulatorName
+     *        - the AVD name of the emulator.
+     * @return the serial number of the emulator.
+     * @throws RemoteException
+     * @throws DeviceNotFoundException
+     */
+    public String getSerialNumberOfEmulator(String emulatorName) throws RemoteException, DeviceNotFoundException;
+
+    /**
+     * Waits until an emulator device with given AVD name is present on the agent or the timeout is reached.
+     * 
+     * @param emulatorName
+     *        - the AVD name of the emulator.
+     * @param timeout
+     *        - the timeout in milliseconds.
+     * @throws RemoteException
+     * @throws TimeoutReachedException
+     */
+    public void waitForEmulatorExists(String emulatorName, long timeout)
+        throws RemoteException,
+            TimeoutReachedException;
+
+    /**
+     * Waits until an emulator device with given AVD name boots or the timeout is reached. Make sure you have called
+     * {@link #waitForEmulatorExists(String, long)} first.
+     * 
+     * @param emulatorName
+     *        - the AVD name of the emulator.
+     * @param timeout
+     *        - the timeout in milliseconds.
+     * @throws RemoteException
+     * @throws CommandFailedException
+     * @throws DeviceBootTimeoutReachedException
+     * @throws DeviceNotFoundException
+     */
+    public void waitForEmulatorToBoot(String emulatorName, long timeout)
+        throws RemoteException,
+            CommandFailedException,
+            DeviceBootTimeoutReachedException,
+            DeviceNotFoundException;
 }
