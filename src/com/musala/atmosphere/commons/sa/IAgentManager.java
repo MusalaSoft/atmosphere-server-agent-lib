@@ -1,12 +1,15 @@
 package com.musala.atmosphere.commons.sa;
 
 import java.io.IOException;
+import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 import com.musala.atmosphere.commons.exceptions.CommandFailedException;
 import com.musala.atmosphere.commons.sa.exceptions.DeviceBootTimeoutReachedException;
 import com.musala.atmosphere.commons.sa.exceptions.DeviceNotFoundException;
+import com.musala.atmosphere.commons.sa.exceptions.NoAvailableDeviceFoundException;
 import com.musala.atmosphere.commons.sa.exceptions.NotPossibleForDeviceException;
 import com.musala.atmosphere.commons.sa.exceptions.TimeoutReachedException;
 
@@ -144,4 +147,58 @@ public interface IAgentManager extends Remote {
             CommandFailedException,
             DeviceBootTimeoutReachedException,
             DeviceNotFoundException;
+
+    /**
+     * Gets a list of all published and available device wrapper RMI string identifiers on the current Agent.
+     * 
+     * @return List of the DeviceInformation objects, one for every available device on the current Agent.
+     * @throws RemoteException
+     */
+    public List<String> getAllDeviceRmiIdentifiers() throws RemoteException;
+
+    /**
+     * Waits until a device with given serial number is present on the agent or the timeout is reached.
+     * 
+     * @param serialNumber
+     *        - the serial number of the device.
+     * @param timeout
+     *        - the timeout in milliseconds.
+     * @throws RemoteException
+     * @throws TimeoutReachedException
+     */
+    public void waitForDeviceExists(String serialNumber, long timeout) throws RemoteException, TimeoutReachedException;
+
+    /**
+     * Checks if any device is present on the agent (current machine).
+     * 
+     * @return true if a device is present, false otherwise.
+     * @throws RemoteException
+     */
+    public boolean isAnyDevicePresent() throws RemoteException;
+
+    /**
+     * Gets the first available device that is present on the agent (current machine).
+     * 
+     * @return the first available device wrapper ({@link IWrapDevice} interface).
+     * @throws RemoteException
+     * @throws NotBoundException
+     * @throws NoAvailableDeviceFoundException
+     */
+    public IWrapDevice getFirstAvailableDeviceWrapper()
+        throws RemoteException,
+            NotBoundException,
+            NoAvailableDeviceFoundException;
+
+    /**
+     * Gets the first available emulator device that is present on the agent (current machine).
+     * 
+     * @return the first available emulator wrapper ({@link IWrapDevice} interface).
+     * @throws RemoteException
+     * @throws NotBoundException
+     * @throws NoAvailableDeviceFoundException
+     */
+    public IWrapDevice getFirstAvailableEmulatorDeviceWrapper()
+        throws RemoteException,
+            NotBoundException,
+            NoAvailableDeviceFoundException;
 }
