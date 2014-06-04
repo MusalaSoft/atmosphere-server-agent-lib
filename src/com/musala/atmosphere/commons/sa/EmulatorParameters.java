@@ -12,7 +12,7 @@ import com.musala.atmosphere.commons.util.Pair;
  * @author georgi.gaydarov
  * 
  */
-public class DeviceParameters implements Serializable {
+public class EmulatorParameters implements Serializable {
     /**
 	 * 
 	 */
@@ -43,11 +43,11 @@ public class DeviceParameters implements Serializable {
      */
     private String target;
 
-    public int getApiLevel() {
+    public Integer getApiLevel() {
         return apiLevel;
     }
 
-    public void setApiLevel(int apiLevel) {
+    public void setApiLevel(Integer apiLevel) {
         this.apiLevel = apiLevel;
     }
 
@@ -59,19 +59,19 @@ public class DeviceParameters implements Serializable {
         this.resolution = resolution;
     }
 
-    public int getDpi() {
+    public Integer getDpi() {
         return dpi;
     }
 
-    public void setDpi(int dpi) {
+    public void setDpi(Integer dpi) {
         this.dpi = dpi;
     }
 
-    public long getRam() {
+    public Long getRam() {
         return ram;
     }
 
-    public void setRam(long ram) {
+    public void setRam(Long ram) {
         this.ram = ram;
     }
 

@@ -32,7 +32,7 @@ public interface IAgentManager extends Remote {
      * @throws RemoteException
      * @throws IOException
      */
-    public String createAndStartEmulator(DeviceParameters parameters) throws RemoteException, IOException;
+    public String createAndStartEmulator(EmulatorParameters parameters) throws RemoteException, IOException;
 
     /**
      * Closes the process of an emulator specified by it's serial number.
@@ -94,7 +94,7 @@ public interface IAgentManager extends Remote {
      * @return a score based on how well the emulator will perform on the agent.
      * @throws RemoteException
      */
-    public double getPerformanceScore(DeviceParameters requiredDeviceParameters) throws RemoteException;
+    public double getPerformanceScore(EmulatorParameters requiredDeviceParameters) throws RemoteException;
 
     /**
      * Checks whether any emulator device is present on the agent.
@@ -201,4 +201,16 @@ public interface IAgentManager extends Remote {
         throws RemoteException,
             NotBoundException,
             NoAvailableDeviceFoundException;
+
+    /**
+     * Returns a unique identifier for this device, which will be used as a publishing string for the wrapper of the
+     * device in RMI.
+     * 
+     * @param deviceSerialNumber
+     *        serial numver of the device we want to get unique identifier for.
+     * @return unique identifier for the device.
+     */
+    public String getRmiWrapperBindingIdentifier(String deviceSerialNumber)
+        throws RemoteException,
+            DeviceNotFoundException;
 }
