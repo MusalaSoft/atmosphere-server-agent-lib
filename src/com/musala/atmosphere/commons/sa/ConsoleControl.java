@@ -69,8 +69,7 @@ public class ConsoleControl {
         try {
             consoleWriter.write(message);
             consoleWriter.flush();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             LOGGER.error("Error while printing information on the console.", e);
         }
     }

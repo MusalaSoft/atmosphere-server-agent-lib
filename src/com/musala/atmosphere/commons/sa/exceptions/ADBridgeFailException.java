@@ -7,24 +7,20 @@ package com.musala.atmosphere.commons.sa.exceptions;
  * @author georgi.gaydarov
  * 
  */
-public class ADBridgeFailException extends Exception
-{
-	/**
+public class ADBridgeFailException extends Exception {
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1021075011386922097L;
+    private static final long serialVersionUID = 1021075011386922097L;
 
-	public ADBridgeFailException()
-	{
-	}
+    public ADBridgeFailException() {
+    }
 
-	public ADBridgeFailException(String message)
-	{
-		super(message);
-	}
+    public ADBridgeFailException(String message) {
+        super(message);
+    }
 
-	public ADBridgeFailException(String message, Throwable inner)
-	{
-		super(message, inner);
-	}
+    public ADBridgeFailException(String message, Throwable inner) {
+        super(message, inner);
+    }
 }

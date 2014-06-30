@@ -11,14 +11,13 @@ import java.rmi.RemoteException;
  * @author georgi.gaydarov
  * 
  */
-public interface IConnectionRequestReceiver extends Remote
-{
-	/**
-	 * Posts a new request for the Server to connect to the invoking machine's IP address at a specified port.
-	 * 
-	 * @param toPort
-	 *        the port at which the Agent's RMI registry is available.
-	 * @throws RemoteException
-	 */
-	public void postConnectionRequest(int toPort) throws RemoteException;
+public interface IConnectionRequestReceiver extends Remote {
+    /**
+     * Posts a new request for the Server to connect to the invoking machine's IP address at a specified port.
+     * 
+     * @param toPort
+     *        the port at which the Agent's RMI registry is available.
+     * @throws RemoteException
+     */
+    public void postConnectionRequest(int toPort) throws RemoteException;
 }

@@ -6,25 +6,21 @@ package com.musala.atmosphere.commons.sa.exceptions;
  * @author georgi.gaydarov
  * 
  */
-public class DeviceNotFoundException extends Exception
-{
-	/**
+public class DeviceNotFoundException extends Exception {
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -2912674159916966023L;
+    private static final long serialVersionUID = -2912674159916966023L;
 
-	public DeviceNotFoundException()
-	{
-	}
+    public DeviceNotFoundException() {
+    }
 
-	// Constructor that accepts a message
-	public DeviceNotFoundException(String message)
-	{
-		super(message);
-	}
+    // Constructor that accepts a message
+    public DeviceNotFoundException(String message) {
+        super(message);
+    }
 
-	public DeviceNotFoundException(String message, Throwable inner)
-	{
-		super(message, inner);
-	}
+    public DeviceNotFoundException(String message, Throwable inner) {
+        super(message, inner);
+    }
 }
