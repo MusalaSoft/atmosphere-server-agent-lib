@@ -17,12 +17,15 @@ public enum RmiStringConstants {
      * String, under which the server's DeviceEventSender class is published in the RMI registry.
      */
     DEVICE_EVENT_SENDER("DeviceEventSender"),
-
     /**
      * String, under which the server's {@link ConnectionRequestReceiver ConnectionRequestReceiver} class is published
      * in the RMI registry.
      */
-    CONNECTION_REQUEST_RECEIVER("ConnectionRequestReceiver");
+    CONNECTION_REQUEST_RECEIVER("ConnectionRequestReceiver"),
+    /**
+     * String, under which the {@link AgentEventReceiver AgentEventReceiver} class is published in the RMI registry.
+     */
+    AGENT_EVENT_RECEIVER("AgentEventReceiver");
 
     private String value;
 
