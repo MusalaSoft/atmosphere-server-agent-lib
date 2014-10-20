@@ -1,7 +1,10 @@
 package com.musala.atmosphere.commons.sa;
 
+import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import com.musala.atmosphere.commons.exceptions.CommandFailedException;
 
 /**
  * <p>
@@ -23,6 +26,11 @@ public interface IAgentEventSender extends Remote {
      * @param available
      *        Passed true if the device that changed is now available (connected), false otherwise (disconnected).
      * @throws RemoteException
+     * @throws NotBoundException
+     * @throws CommandFailedException
      */
-    public void deviceListChanged(String agentId, String changedDeviceRmiId, boolean available) throws RemoteException;
+    public void deviceListChanged(String agentId, String changedDeviceRmiId, boolean available)
+        throws RemoteException,
+            CommandFailedException,
+            NotBoundException;
 }
