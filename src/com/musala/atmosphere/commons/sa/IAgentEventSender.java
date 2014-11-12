@@ -26,8 +26,11 @@ public interface IAgentEventSender extends Remote {
      * @param available
      *        Passed true if the device that changed is now available (connected), false otherwise (disconnected).
      * @throws RemoteException
+     *         - when connection is lost
      * @throws NotBoundException
+     *         - when agent with the given ID is not bound in the RMI registry
      * @throws CommandFailedException
+     *         - when executing command on a connected device fails
      */
     public void deviceListChanged(String agentId, String changedDeviceRmiId, boolean available)
         throws RemoteException,
