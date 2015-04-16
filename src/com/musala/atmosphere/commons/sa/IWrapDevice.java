@@ -10,14 +10,14 @@ import com.musala.atmosphere.commons.exceptions.CommandFailedException;
  * <p>
  * Common interface for all device wrappers, used in RMI.
  * </p>
- * 
+ *
  * @author georgi.gaydarov
- * 
+ *
  */
 public interface IWrapDevice extends Remote {
     /**
      * Requests an action invocation on the device wrapper.
-     * 
+     *
      * @param action
      *        - a {@link RoutingAction} instance that specifies the action to be invoked.
      * @param args
@@ -27,4 +27,12 @@ public interface IWrapDevice extends Remote {
      * @throws CommandFailedException
      */
     public Object route(RoutingAction action, Object... args) throws RemoteException, CommandFailedException;
+
+    /**
+     * Stops all ATMOSPHERE on-device components and releases the allocated ports.
+     *
+     * @throws RemoteException
+     *         if execution of the method fails
+     */
+    public void unbindWrapper() throws RemoteException;
 }
