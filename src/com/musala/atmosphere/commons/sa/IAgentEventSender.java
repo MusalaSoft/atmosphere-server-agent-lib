@@ -33,7 +33,19 @@ public interface IAgentEventSender extends Remote {
      *         - when executing command on a connected device fails
      */
     public void deviceListChanged(String agentId, String changedDeviceRmiId, boolean available)
-        throws RemoteException,
+            throws RemoteException,
             CommandFailedException,
             NotBoundException;
+
+    /**
+     * Updates device's information .
+     * 
+     * @param agentId
+     *        - ID of the agent on which the device is connected to
+     * @param changedDeviceRmiId
+     *        - RMI ID of the device wrapper which will be updated
+     * @throws RemoteException
+     *         if connection to the Server is lost
+     */
+    public void updateDevice(String agentId, String changedDeviceRmiId) throws RemoteException;
 }
