@@ -9,7 +9,6 @@ import java.util.List;
 import com.musala.atmosphere.commons.exceptions.CommandFailedException;
 import com.musala.atmosphere.commons.sa.exceptions.DeviceBootTimeoutReachedException;
 import com.musala.atmosphere.commons.sa.exceptions.DeviceNotFoundException;
-import com.musala.atmosphere.commons.sa.exceptions.NoAvailableDeviceFoundException;
 import com.musala.atmosphere.commons.sa.exceptions.NotPossibleForDeviceException;
 import com.musala.atmosphere.commons.sa.exceptions.TimeoutReachedException;
 
@@ -47,8 +46,7 @@ public interface IAgentManager extends Remote {
         throws RemoteException,
             DeviceNotFoundException,
             IOException,
-            NotPossibleForDeviceException,
-            DeviceNotFoundException;
+            NotPossibleForDeviceException;
 
     /**
      * Gets the unique identifier of the current Agent.
@@ -182,12 +180,8 @@ public interface IAgentManager extends Remote {
      * @return the first available device wrapper ({@link IWrapDevice} interface).
      * @throws RemoteException
      * @throws NotBoundException
-     * @throws NoAvailableDeviceFoundException
      */
-    public IWrapDevice getFirstAvailableDeviceWrapper()
-        throws RemoteException,
-            NotBoundException,
-            NoAvailableDeviceFoundException;
+    public IWrapDevice getFirstAvailableDeviceWrapper() throws RemoteException, NotBoundException;
 
     /**
      * Gets the first available emulator device that is present on the agent (current machine).
@@ -195,12 +189,8 @@ public interface IAgentManager extends Remote {
      * @return the first available emulator wrapper ({@link IWrapDevice} interface).
      * @throws RemoteException
      * @throws NotBoundException
-     * @throws NoAvailableDeviceFoundException
      */
-    public IWrapDevice getFirstAvailableEmulatorDeviceWrapper()
-        throws RemoteException,
-            NotBoundException,
-            NoAvailableDeviceFoundException;
+    public IWrapDevice getFirstAvailableEmulatorDeviceWrapper() throws RemoteException, NotBoundException;
 
     /**
      * Returns a unique identifier for this device, which will be used as a publishing string for the wrapper of the
