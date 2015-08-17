@@ -28,7 +28,7 @@ public class SystemSpecification implements Serializable {
     private int cpuCount;
 
     /**
-     * Is Intel® HAXM (Hardware Accelerated Execution Manager) is available on the device.
+     * Is Intel HAXM (Hardware Accelerated Execution Manager) is available on the device.
      */
     private boolean isHaxm;
 
@@ -81,7 +81,7 @@ public class SystemSpecification implements Serializable {
     }
 
     /**
-     * A flag showing if Intel® HAXM (Hardware Accelerated Execution Manager) is available on the device.
+     * A flag showing if Intel HAXM (Hardware Accelerated Execution Manager) is available on the device.
      * 
      * @return true if HAXM is available; false if not.
      */
@@ -90,7 +90,7 @@ public class SystemSpecification implements Serializable {
     }
 
     /**
-     * Sets a flag showing if Intel® HAXM (Hardware Accelerated Execution Manager) is available on the device.
+     * Sets a flag showing if Intel HAXM (Hardware Accelerated Execution Manager) is available on the device.
      * 
      * @param isHaxm
      *        - true if HAXM is available; false if not.
