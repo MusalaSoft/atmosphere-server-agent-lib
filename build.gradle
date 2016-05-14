@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+version = '0.0.1'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Atmosphere Server-Agent Commons',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'com.musala.atmosphere:atmosphere-commons:0.0.1'
+}
+
+sourceSets {
+    main.java.srcDir 'src'
+}
+
+publishing {
+    publications {
+        atmosphereCommons(MavenPublication) {
+            groupId 'com.musala.atmosphere'
+            artifactId 'atmosphere-sa-commons'
+            version version
+
+            from components.java
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
+}
