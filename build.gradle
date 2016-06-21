@@ -18,13 +18,9 @@ dependencies {
     compile 'com.musala.atmosphere:atmosphere-commons:0.0.1'
 }
 
-sourceSets {
-    main.java.srcDir 'src'
-}
-
 publishing {
     publications {
-        atmosphereCommons(MavenPublication) {
+        atmosphereSACommons(MavenPublication) {
             groupId 'com.musala.atmosphere'
             artifactId 'atmosphere-sa-commons'
             version version
@@ -36,4 +32,8 @@ publishing {
     repositories {
         mavenLocal()
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
 }

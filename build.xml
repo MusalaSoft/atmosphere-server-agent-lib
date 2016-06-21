@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="AtmosphereSACommons">
-    <import file="../common-build.xml"/>
-
-    <property name="dependency.projects" value="AtmosphereCommons"/>
-
-    <target name="build-tests"/>
-    <target name="tests-jar"/>
-</project>
