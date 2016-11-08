@@ -1,3 +1,5 @@
+See our site for better context of this readme. [Click here](http://atmosphereframework.com/)
+
 # atmosphere-server-agent-lib
 The server-agent libraries of the ATMOSPHERE mobile testing framework
 
