@@ -18,6 +18,7 @@ public interface IConnectionRequestReceiver extends Remote {
      * @param toPort
      *        the port at which the Agent's RMI registry is available.
      * @throws RemoteException
+     *         an error during the execution of a remote method call
      */
     public void postConnectionRequest(int toPort) throws RemoteException;
 }

@@ -24,7 +24,9 @@ public interface IWrapDevice extends Remote {
      *        - the action parameters (if required).
      * @return the result from the action invocation.
      * @throws RemoteException
+     *         an error during the execution of a remote method call
      * @throws CommandFailedException
+     *         thrown when a command failed
      */
     public Object route(RoutingAction action, Object... args) throws RemoteException, CommandFailedException;
 
@@ -32,7 +34,7 @@ public interface IWrapDevice extends Remote {
      * Stops all ATMOSPHERE on-device components and releases the allocated ports.
      *
      * @throws RemoteException
-     *         if execution of the method fails
+     *         an error during the execution of a remote method call
      */
     public void unbindWrapper() throws RemoteException;
 }

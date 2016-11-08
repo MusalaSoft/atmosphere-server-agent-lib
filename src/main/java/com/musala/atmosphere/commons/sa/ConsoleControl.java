@@ -34,9 +34,10 @@ public class ConsoleControl {
 
     /**
      * Prints command prompt message and read the rest of the line.
-     * 
+     *
      * @return - A String containing the command and parameters of the user.
      * @throws IOException
+     *         - if an I/O exception of some sort has occurred.
      */
     public String readCommand() throws IOException {
         write(LINE_PREFFIX);
@@ -47,7 +48,7 @@ public class ConsoleControl {
     /**
      * Reads single line of text from the console. A line is considered to be terminated by any one of a line feed
      * ('\n'), a carriage return ('\r'), or a carriage return followed immediately by a linefeed.
-     * 
+     *
      * @return - A String containing the contents of the line, not including any line-termination characters, or null if
      *         the end of the stream has been reached
      * @throws IOException
@@ -61,7 +62,7 @@ public class ConsoleControl {
 
     /**
      * Prints message to the agent console. No new line will be added to the end of the message.
-     * 
+     *
      * @param message
      *        - message or command to be written on the agent console.
      */
@@ -77,7 +78,7 @@ public class ConsoleControl {
     /**
      * Prints line of text to the console. The line consists of the given text, concatenated with the character for new
      * line.
-     * 
+     *
      * @param message
      *        - message or command to be written on the agent console.
      */
@@ -87,11 +88,11 @@ public class ConsoleControl {
 
     /**
      * Parses given shell command in two: command and parameters, and returns the result as a Pair.
-     * 
+     *
      * @param passedCommand
      *        - full command for execution.
-     * @return Pair<String, List<String> > where the key is the command and the value is a list with the passed
-     *         parameters as strings.
+     * @return Pair&lt;String, List&lt;String&gt;&gt; where the key is the command and the value is a list with the
+     *         passed parameters as strings.
      */
     public static Pair<String, List<String>> parseShellCommand(String passedCommand) {
         // parsing the command where character is ' ' OR ':'
@@ -103,7 +104,7 @@ public class ConsoleControl {
         // Copy args array in params shifted with one position.
         System.arraycopy(args, 1, params, 0, numberOfParams);
 
-        Pair<String, List<String>> parsedShellCommand = new Pair<String, List<String>>(command, Arrays.asList(params));
+        Pair<String, List<String>> parsedShellCommand = new Pair<>(command, Arrays.asList(params));
         return parsedShellCommand;
     }
 

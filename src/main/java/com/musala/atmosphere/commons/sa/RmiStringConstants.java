@@ -18,12 +18,12 @@ public enum RmiStringConstants {
      */
     DEVICE_EVENT_SENDER("DeviceEventSender"),
     /**
-     * String, under which the server's {@link ConnectionRequestReceiver ConnectionRequestReceiver} class is published
+     * String, under which the server's com.musala.atmosphere.server.ConnectionRequestReceiver class is published
      * in the RMI registry.
      */
     CONNECTION_REQUEST_RECEIVER("ConnectionRequestReceiver"),
     /**
-     * String, under which the {@link AgentEventReceiver AgentEventReceiver} class is published in the RMI registry.
+     * String, under which the com.musala.atmosphere.agent.AgentEventReceiver class is published in the RMI registry.
      */
     AGENT_EVENT_RECEIVER("AgentEventReceiver");
 
