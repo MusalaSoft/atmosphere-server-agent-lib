@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.musala.atmosphere:atmosphere-commons:0.0.1'
+    compile 'com.musala.atmosphere:atmosphere-commons:0.+'
 }
 
 publishing {
@@ -37,4 +37,14 @@ publishing {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.13'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
 }
