@@ -8,14 +8,11 @@ import com.musala.atmosphere.commons.util.Pair;
  * <p>
  * Information container for properties, which will be used for emulator creation.
  * </p>
- * 
+ *
  * @author georgi.gaydarov
- * 
+ *
  */
 public class EmulatorParameters implements Serializable {
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -5084666297559414668L;
 
     /**
