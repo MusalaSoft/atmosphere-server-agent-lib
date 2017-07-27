@@ -85,6 +85,13 @@ public class ConsoleControl {
     public void writeLine(String message) {
         write(message + LINE_SEPARATOR);
     }
+    
+    /**
+     * Prints empty line to the console.
+     */
+    public void writeLine() {
+        write(LINE_SEPARATOR);
+    }
 
     /**
      * Parses given shell command in two: command and parameters, and returns the result as a Pair.
