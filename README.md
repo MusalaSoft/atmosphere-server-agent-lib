@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/MusalaSoft/atmosphere-server-agent-lib.svg?branch=master)](https://travis-ci.org/MusalaSoft/atmosphere-server-agent-lib) [ ![Download](https://api.bintray.com/packages/musala/atmosphere/atmosphere-client-server-lib/images/download.svg) ](https://bintray.com/musala/atmosphere/atmosphere-client-server-lib/_latestVersion)  
 See our site for better context of this readme. [Click here](http://atmosphereframework.com/)
 
 # atmosphere-server-agent-lib
